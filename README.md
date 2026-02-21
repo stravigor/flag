@@ -13,10 +13,12 @@ Requires `@stravigor/core` as a peer dependency.
 
 ## Setup
 
+Add to `start/providers.ts`:
+
 ```ts
 import { FlagProvider } from '@stravigor/flag'
 
-app.use(new FlagProvider())
+new FlagProvider(),
 ```
 
 ## Usage

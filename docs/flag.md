@@ -17,10 +17,12 @@ The `install` command copies `config/flag.ts` into your project. The file is you
 
 #### Using a service provider (recommended)
 
+Add to `start/providers.ts`:
+
 ```typescript
 import { FlagProvider } from '@stravigor/flag'
 
-app.use(new FlagProvider())
+new FlagProvider(),
 ```
 
 The `FlagProvider` registers `FlagManager` as a singleton. It depends on the `config` and `database` providers, and auto-creates the `_strav_features` table on boot.
@@ -28,7 +30,7 @@ The `FlagProvider` registers `FlagManager` as a singleton. It depends on the `co
 To skip auto-creation (e.g. when using migrations):
 
 ```typescript
-app.use(new FlagProvider({ ensureTables: false }))
+new FlagProvider({ ensureTables: false }),
 ```
 
 #### Manual setup
